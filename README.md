@@ -78,7 +78,7 @@ Create a new account via Sign Up → verifies data insertion.
 
 Log in using the same account → verifies data retrieval.
 
-Add income and expense records.
+Add income and expense records and others.
 
 View the updated balance and charts in real-time.
 
