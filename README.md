@@ -6,14 +6,6 @@ It demonstrates best practices using a **layered architecture** for maintainabil
 
 ---
 
-## ✨ Core Features
-
-- **Secure Authentication** – Complete Sign Up and Login workflow with database integration (read/write cycle).  
-- **Transaction Management** – Create, edit, and delete income/expense records.  
-- **Category Customization** – Define and manage custom categories (e.g., Shopping, Clothing).  
-- **Real-time Metrics** – Displays *Current Balance*, *Total Income*, and *Total Expense* instantly.  
-- **Localization** – Shows all currency values with the Indian Rupee symbol (₹).  
-- **Visual Tracking** – Chart view for monthly financial trends and reports.
 
 ---
 
