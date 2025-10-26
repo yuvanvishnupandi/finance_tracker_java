@@ -1,4 +1,4 @@
-# 💰 Finance Tracker  
+#  Finance Tracker  
 ### Full-Stack Personal Finance Application (JavaFX & Spring Boot)
 
 This project is a **robust full-stack desktop application** designed to help users track their income and expenses, providing clear visualization of financial activity.  
