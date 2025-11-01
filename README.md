@@ -112,7 +112,6 @@ This project showcases end-to-end communication between **JavaFX (client), Sprin
   * **Data Read Path (Login):**
     Credentials entered in the GUI $\rightarrow$ verified via **API** $\rightarrow$ retrieved using **SQL SELECT query** via **Spring Data JPA**.
 
------
 
 ## 🧠 Author
 
