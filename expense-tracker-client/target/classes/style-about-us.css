@@ -1,0 +1,31 @@
+/* File: style-about-us.css */
+/* Used to force the About Us dialog to look clean (white/black) */
+
+.root,
+.dialog-pane {
+    -fx-base: #f7f7f7;
+    -fx-background-color: white;
+}
+
+/* Ensure all text within the dialog is dark */
+.dialog-pane .label,
+.dialog-pane .content {
+    -fx-text-fill: #111; 
+}
+
+/* Styling the content area for readability */
+.text-area {
+    -fx-control-inner-background: white;
+    -fx-text-fill: black;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 12px;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #377BE1;
+    -fx-text-fill: white;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #f0f0f0;
+}

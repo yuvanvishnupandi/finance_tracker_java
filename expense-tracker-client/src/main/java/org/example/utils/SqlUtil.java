@@ -411,6 +411,13 @@ public class SqlUtil {
     }
 
     // delete
+    /**
+     * Attempts to delete a transaction category by ID.
+     * Note: A 500 error usually means a Foreign Key constraint violation on the server, 
+     * indicating transactions are still linked to this category.
+     * @param categoryId The ID of the category to delete.
+     * @return true if deletion was successful (200), false otherwise.
+     */
     public static boolean deleteTransactionCategoryById(int categoryId){
         HttpURLConnection conn = null;
         try{
@@ -420,8 +427,19 @@ public class SqlUtil {
                     null
             );
 
-            if(conn.getResponseCode() != 200){
-                System.out.println("Error(deleteTransactionCategoryById): " + conn.getResponseCode());
+            int responseCode = conn.getResponseCode();
+            
+            if(responseCode != 200){
+                // Enhanced logging to show the actual response code
+                System.out.println("Error(deleteTransactionCategoryById): " + responseCode);
+                
+                // Add a user-friendly alert for common deletion issues (like 500/409)
+                if (responseCode == 500 || responseCode == 409) {
+                     new Alert(Alert.AlertType.ERROR, 
+                               "Failed to delete category (Code " + responseCode + "). " +
+                               "If the code is 500, please ensure all linked transactions are deleted or recategorized first.").showAndWait();
+                }
+
                 return false;
             }
 
@@ -463,16 +481,3 @@ public class SqlUtil {
         return false;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

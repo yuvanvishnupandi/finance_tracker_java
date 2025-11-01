@@ -1,0 +1,128 @@
+/* File: expense-tracker-client/src/main/resources/style-light.css */
+
+/* --- CORE COLORS --- */
+.root { 
+  -fx-base: #f7f7f7; 
+}
+.main-background { 
+  -fx-background-color: #f7f7f7; 
+}
+.field-background { 
+  -fx-background-color: #ffffff; 
+}
+.rounded-border { 
+  -fx-background-radius: 8; 
+  -fx-border-radius: 8; 
+}
+
+/* --- TEXT COLORS --- */
+.text-light-gray { 
+  -fx-text-fill: #6b7280; 
+}
+.text-white { 
+  -fx-text-fill: #111; 
+}
+
+/* Specific color definitions for stats and status text */
+.text-light-red { 
+  -fx-text-fill: #e13742; 
+}
+.text-light-green { 
+  -fx-text-fill: #33ba2f; 
+}
+
+
+/* --- STAT CARDS --- */
+.stat-summary-box { 
+  -fx-padding: 20 0 40 0; 
+}
+.stat-card {
+  -fx-background-color: #ffffff;
+  -fx-background-radius: 12;
+  -fx-padding: 18 24 18 24;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.10), 8, 0, 2, 2); 
+}
+.stat-card:hover {
+  -fx-scale-x: 1.03;
+  -fx-scale-y: 1.03;
+  -fx-background-color: #f0f0f0; 
+}
+.stat-label  { 
+  -fx-text-fill: #6b7280; 
+  -fx-font-size: 14; 
+}
+.stat-amount { 
+  -fx-text-fill: #111827; 
+  -fx-font-size: 28; 
+  -fx-font-weight: bold; 
+}
+
+/* --- TOP BAR / MENU --- */
+.top-bar-background { 
+  -fx-background-color: #ffffff; 
+}
+.menu-bar { 
+  -fx-background-color: transparent; 
+}
+.menu-bar > .container > .menu-button > .label { 
+  -fx-text-fill: #111; 
+  -fx-font-size: 16px; 
+  -fx-font-weight: 600; 
+}
+.user-name-label { 
+  -fx-text-fill: #111; 
+}
+.user-email-label { 
+  -fx-text-fill: #6b7280; 
+}
+.theme-toggle {
+    -fx-background-color: #ffffff; 
+    -fx-text-fill: #377BE1; 
+    -fx-border-color: #377BE1;
+    -fx-border-width: 1px;
+}
+.theme-toggle:selected {
+     -fx-background-color: #377BE1;
+     -fx-text-fill: white;
+}
+
+/* --- TABLES (Monthly Summary Table & Recent Transactions Box) --- */
+.recent-transactions-box { 
+  -fx-background-color: #ffffff; 
+  -fx-border-color: #e5e7eb; 
+}
+
+.table-view { 
+  -fx-background-color: #ffffff; 
+  -fx-border-color: #e5e7eb; 
+  -fx-background-radius: 8; 
+}
+.table-view .column-header-background { 
+  -fx-background-color: #e5e7eb; 
+}
+.table-view .table-row-cell:even { 
+  -fx-background-color: #ffffff; 
+}
+.table-view .table-row-cell:odd { 
+  -fx-background-color: #f7f7f7; 
+}
+.table-view .column-header .label { 
+  -fx-text-fill: #4b5563; 
+}
+
+/* --- COMBO BOXES (Filters) --- */
+.year-combo { 
+  -fx-background-color: #ffffff; 
+  -fx-text-fill: #111; 
+  -fx-border-color: #d1d5db; 
+}
+.combo-box-popup .list-view { 
+  -fx-background-color: #ffffff; 
+}
+.combo-box-popup .list-view .list-cell { 
+  -fx-background-color: #ffffff; 
+  -fx-text-fill: #111; 
+}
+.combo-box-popup .list-view .list-cell:hover { 
+  -fx-background-color: #e0e0e0; 
+}

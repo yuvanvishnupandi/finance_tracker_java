@@ -1,22 +1,25 @@
 package org.example.dialogs;
 
+import javafx.application.Platform;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import org.example.components.TransactionComponent;
 import org.example.controllers.DashboardController;
 import org.example.models.Transaction;
-import org.example.models.User;
 import org.example.utils.SqlUtil;
+import org.example.utils.ThemeManager;
 
 import java.time.Month;
 import java.util.List;
 
 public class ViewTransactionsDialog extends CustomDialog {
-    private DashboardController dashboardController;
-    private String monthName;
+
+    private final DashboardController dashboardController;
+    private final String monthName;
 
     public ViewTransactionsDialog(DashboardController dashboardController, String monthName) {
         super(dashboardController.getUser());
+
         this.dashboardController = dashboardController;
         this.monthName = monthName;
 
@@ -26,43 +29,32 @@ public class ViewTransactionsDialog extends CustomDialog {
 
         ScrollPane transactionScrollPane = createTransactionScrollPane();
         getDialogPane().setContent(transactionScrollPane);
+
+        // ✅ Theme adjust after scene loads
+        // Platform.runLater(() -> ThemeManager.apply(getDialogPane().getScene()));
     }
 
-    private ScrollPane createTransactionScrollPane(){
+    private ScrollPane createTransactionScrollPane() {
         VBox vBox = new VBox(20);
 
         ScrollPane scrollPane = new ScrollPane(vBox);
-        scrollPane.setMinHeight(getHeight() - 40);
         scrollPane.setFitToWidth(true);
+        scrollPane.setMinHeight(getHeight() - 40);
 
-        List<Transaction> monthTransactions = SqlUtil.getAllTransactionsByUserId(
+        List<Transaction> transactions = SqlUtil.getAllTransactionsByUserId(
                 dashboardController.getUser().getId(),
                 dashboardController.getCurrentYear(),
                 Month.valueOf(monthName).getValue()
         );
 
-        if(monthTransactions != null){
-            for(Transaction transaction : monthTransactions){
-                TransactionComponent transactionComponent = new TransactionComponent(
-                        dashboardController,
-                        transaction
-                );
-                transactionComponent.getStyleClass().addAll("border-light-gray");
-
-                vBox.getChildren().add(transactionComponent);
+        if (transactions != null) {
+            for (Transaction t : transactions) {
+                TransactionComponent comp = new TransactionComponent(dashboardController, t);
+                comp.getStyleClass().add("border-light-gray"); // 🟦 Your design
+                vBox.getChildren().add(comp);
             }
         }
 
         return scrollPane;
     }
 }
-
-
-
-
-
-
-
-
-
-

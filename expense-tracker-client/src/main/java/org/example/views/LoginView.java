@@ -39,27 +39,25 @@ public class LoginView {
         return new Scene(mainContainerBox, Utilitie.APP_WIDTH, Utilitie.APP_HEIGHT);
     }
 
-    private VBox createLoginFormBox(){
-        VBox loginFormVBox = new VBox(51);
-        loginFormVBox.setAlignment(Pos.CENTER);
 
-        usernameField.getStyleClass().addAll("field-background", "text-light-gray", "text-size-lg", "rounded-border");
-        usernameField.setPromptText("Enter Username");
-        usernameField.setMaxWidth(473);
+private VBox createLoginFormBox() {
+    VBox formCard = new VBox(20); // spacing
+    formCard.getStyleClass().addAll("ui-card");
+    formCard.setMaxWidth(500);
 
-        passwordField.getStyleClass().addAll("field-background", "text-light-gray", "text-size-lg", "rounded-border");
-        passwordField.setPromptText("Enter Password");
-        passwordField.setMaxWidth(473);
+    usernameField.getStyleClass().addAll("input-field");
+    usernameField.setPromptText("Enter Username");
 
-        loginButton.getStyleClass().addAll("text-size-lg", "bg-light-blue", "text-white", "text-weight-700", "rounded-border");
-        loginButton.setMaxWidth(473);
+    passwordField.getStyleClass().addAll("input-field");
+    passwordField.setPromptText("Enter Password");
 
-        signupLabel.getStyleClass().addAll("text-size-md", "text-light-gray", "text-underline", "link-text");
+    loginButton.getStyleClass().addAll("primary-button");
 
-        loginFormVBox.getChildren().addAll(usernameField, passwordField, loginButton, signupLabel);
-        return loginFormVBox;
-    }
+    signupLabel.getStyleClass().addAll("link-label");
 
+    formCard.getChildren().addAll(usernameField, passwordField, loginButton, signupLabel);
+    return formCard;
+}
     public Label getExpenseTrackerLabel() {
         return expenseTrackerLabel;
     }

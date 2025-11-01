@@ -1,0 +1,129 @@
+/* File: expense-tracker-client/src/main/resources/style-dark.css */
+
+/* ===== Base ===== */
+.root {
+    -fx-font-family: "Inter", "Segoe UI", "Roboto", system-ui, sans-serif;
+    -fx-background-color: #1F2328;
+}
+.main-background { -fx-background-color: #1F2328; }
+
+/* ===== Top bar ===== */
+.menu-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 6 8 6 8;
+}
+.menu-bar .label {
+    -fx-text-fill: #D1D5DB;
+    -fx-font-weight: 600;
+}
+.menu:hover .label, .menu:showing .label {
+    -fx-text-fill: #7AA2FF;
+}
+
+/* Theme toggle */
+.toggle-button {
+    -fx-background-radius: 20;
+    -fx-padding: 5 12 5 12;
+    -fx-background-color: #2B2F36;
+    -fx-text-fill: #E5E7EB;
+    -fx-font-weight: 700;
+    -fx-border-color: #39414D;
+    -fx-border-radius: 20;
+}
+.toggle-button:hover { -fx-background-color: #323845; }
+.toggle-button:selected {
+    -fx-background-color: #2E6FF2;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+/* ===== Cards ===== */
+.stat-card {
+    -fx-background-color: #2A2F39;
+    -fx-background-radius: 14;
+    -fx-padding: 14 18 16 18;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.45), 18, 0, 0, 10);
+    -fx-border-color: #364152;
+    -fx-border-radius: 14;
+    -fx-background-insets: 0, 1;
+}
+.stat-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 24, 0, 0, 16);
+    -fx-translate-y: -2;
+}
+.stat-label  { -fx-text-fill: #94A3B8; -fx-font-size: 12px; }
+.stat-amount { -fx-text-fill: #FFFFFF; -fx-font-size: 22px; -fx-font-weight: 800; }
+
+/* ===== Buttons ===== */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #3B82F6, #2E6FF2);
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-background-radius: 10;
+    -fx-padding: 8 16 8 16;
+    -fx-effect: dropshadow(three-pass-box, rgba(46,111,242,0.35), 10, 0, 0, 6);
+    -fx-border-color: transparent;
+}
+.button:hover { -fx-background-color: linear-gradient(to bottom, #2E6FF2, #255AE8); }
+.button:pressed { -fx-translate-y: 1; }
+
+/* ===== Inputs ===== */
+.combo-box-base, .text-field, .date-picker, .spinner {
+    -fx-background-color: #2A2F39;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #3B4557;
+    -fx-text-fill: #E5E7EB;
+}
+.combo-box-base:hover, .text-field:hover, .date-picker:hover, .spinner:hover {
+    -fx-border-color: #4B5C78;
+}
+
+/* ===== Table ===== */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #323A47;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #2A313D, #26303C);
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-color: #3A4454;
+}
+.table-view .column-header, .table-view .filler {
+    -fx-size: 36px;
+}
+.table-view .column-header .label {
+    -fx-text-fill: #CBD5E1;
+    -fx-font-weight: 800;
+}
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #2D3542 transparent;
+}
+.table-row-cell:hover { -fx-background-color: #2A3446; }
+.table-row-cell:filled:selected { -fx-background-color: #394B6B; }
+
+/* ===== ScrollBar ===== */
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+.thumb {
+    -fx-background-color: rgba(58,121,255,0.65);
+    -fx-background-radius: 8;
+}
+.increment-button, .decrement-button { -fx-background-color: transparent; }
+
+/* ===== Recent transactions container ===== */
+.field-background {
+    -fx-background-color: #242A33;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #323A47;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.45), 14, 0, 0, 10);
+}
+
+/* ===== Titles ===== */
+.text-size-lg { -fx-font-size: 18px; -fx-font-weight: 900; -fx-text-fill: #E2E8F0; }
+.text-light-gray { -fx-text-fill: #CBD5E1; }

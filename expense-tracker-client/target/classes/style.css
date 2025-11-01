@@ -1,25 +1,6 @@
-/* for debugging */
-/* Label, TextField, Button, PasswordField, ComboBox, DatePicker{
-    -fx-border-width: 1px;
-    -fx-border-color: #fff;
-} */
+/* style.css (Universal Style File - Implements Local Dark/Light Toggle) */
 
-/* VBox {
-    -fx-border-width: 1px;
-    -fx-border-color: red;
-}
-
-HBox {
-    -fx-border-width: 1px;
-    -fx-border-color: blue;
-}
-
-GridPane {
-    -fx-border-width: 1px;
-    -fx-border-color: green;
-} */
-
-/* generic classes */
+/* --- CORE UI ELEMENTS (Dark Mode Defaults) --- */
 Button{
     -fx-cursor: hand;
 }
@@ -29,13 +10,11 @@ Button:hover{
     -fx-opacity: 0.5;
 }
 
-/* to solve the issue with removing the default background color of the scrollpane */
 ScrollPane,
 ScrollPane > .viewport {
    -fx-background-color: transparent;
 }
 
-/* table */
 .table-view .column-header{
     -fx-background-color: #515050;
 }
@@ -51,9 +30,27 @@ ScrollPane > .viewport {
     -fx-pref-height: 0;
 }
 
-/* bar chart */
-.axis-label{
+.chart-title {
     -fx-text-fill: #BEB9B9;
+}
+
+.axis-label {
+    -fx-text-fill: #BEB9B9;
+}
+
+.chart-legend {
+    -fx-text-fill: #BEB9B9;
+}
+
+/* We rely on Java code for chart-pie-label color now */
+
+.pie-chart .chart-pie-label {
+    -fx-text-fill: #FFFFFF; 
+}
+
+.chart-pie-label-line {
+    -fx-stroke: #BEB9B9;
+    -fx-stroke-width: 1px;
 }
 
 .default-color0.chart-legend-item-symbol{
@@ -64,7 +61,6 @@ ScrollPane > .viewport {
     -fx-background-color: #ba2f2f;
 }
 
-/* text */
 .text-size-lg{
     -fx-font-size: 36px;
 }
@@ -97,7 +93,6 @@ ScrollPane > .viewport {
     -fx-font-weight: 700;
 }
 
-/* background colors */
 .bg-light-blue{
     -fx-background-color: #377BE1;
 }
@@ -106,17 +101,14 @@ ScrollPane > .viewport {
     -fx-background-color: #e13742;
 }
 
-/* text decorations */
 .text-underline{
     -fx-underline: true;
 }
 
-/* padding */
 .padding-10px{
     -fx-padding: 10px;
 }
 
-/* border */
 .rounded-border{
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
@@ -127,7 +119,14 @@ ScrollPane > .viewport {
     -fx-border-color: #515050;
 }
 
-/* custom classes */
+/* --- THEME SPECIFIC BACKGROUND CLASSES --- */
+.main-background-dark { 
+    -fx-background-color: #383838; /* Default Dark Background */
+}
+.main-background-light { 
+    -fx-background-color: #f7f7f7; /* New Light Mode Background (White) */
+}
+
 .main-background{
     -fx-background-color: #383838;
 }
@@ -155,16 +154,372 @@ ScrollPane > .viewport {
 
 .combo-box .list-cell,
 .date-picker .text-field {
-    -fx-background-color: #515050; /* Background color */
-    -fx-text-fill: #BEB9B9;        /* Font color */
+    -fx-background-color: #515050;
+    -fx-text-fill: #BEB9B9;
+}
+
+.ui-card {
+    -fx-background-color: #2c2c2c;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-padding: 40px;
+    -fx-effect: gaussian(rgba(0, 0, 0, 0.3), 20, 0, 0, 4);
+    -fx-spacing: 20px;
+    -fx-alignment: center;
+}
+
+.ui-card:hover {
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+    -fx-cursor: default;
+}
+
+.ui-panel {
+    -fx-background-color: #2c2c2c;
+    -fx-background-radius: 15px;
+    -fx-padding: 30px;
+}
+
+.center-box {
+    -fx-alignment: center;
+    -fx-spacing: 25px;
+    -fx-padding: 50px 0;
+}
+
+.input-field {
+    -fx-background-color: #414141;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #666666;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 12px 14px;
+    -fx-font-size: 14px;
+}
+
+.input-field:focused {
+    -fx-border-color: #377BE1;
+    -fx-effect: gaussian(#377BE1, 5, 0.5, 0, 0);
+}
+
+.primary-button {
+    -fx-background-color: linear-gradient(to right, #377BE1, #335de1);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 12px;
+    -fx-pref-width: 200px;
+    -fx-alignment: center;
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #335de1, #2a4bdc);
+}
+
+.link-label {
+    -fx-text-fill: #BEB9B9;
+    -fx-font-size: 13px;
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+.link-label:hover {
+    -fx-text-fill: #5499ff;
+}
+
+/* --- UPDATED STATS CARD STYLES (DARK MODE) --- */
+.stat-card {
+    -fx-background-color: #2f3136;
+    -fx-padding: 25px 30px; 
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-effect: gaussian(rgba(0, 0, 0, 0.35), 8, 0, 0, 4); 
+    -fx-spacing: 6px;
+    -fx-alignment: center;
+}
+
+.stat-card:hover {
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-background-color: #383a40; 
+    -fx-effect: gaussian(rgba(0, 0, 0, 0.5), 15, 0, 0, 6); 
+}
+
+.stat-label {
+    -fx-text-fill: #c0c0c0;
+    -fx-font-size: 14px; 
+    -fx-font-weight: 500;
+}
+
+.stat-amount {
+    -fx-text-fill: white;
+    -fx-font-size: 28px; 
+    -fx-font-weight: bold;
+}
+/* --- END UPDATED STATS CARD STYLES --- */
+
+
+.year-combo {
+    -fx-background-color: #333;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 6px;
+    -fx-text-fill: white;
+}
+
+.chart-button {
+    -fx-background-color: #446df2;
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.table-view {
+    -fx-background-color: #2e2e2e;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #393939;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #2e2e2e;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: #444;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.recent-transactions-box {
+    -fx-background-color: #2c2c2c;
+    -fx-background-radius: 12px;
+    -fx-effect: gaussian(rgba(0, 0, 0, 0.3), 10, 0, 0, 4);
+    -fx-padding: 20px;
+}
+
+/* --- NAVBAR & USER INFO STYLES (DARK MODE) --- */
+.top-bar-background {
+    -fx-background-color: #2c2c2c; 
+    -fx-min-height: 40px; 
+}
+
+.user-name-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white; 
+}
+
+.user-email-label {
+    -fx-font-size: 10px;
+    -fx-text-fill: #cccccc; 
+}
+
+.menu-bar {
+    -fx-background-color: transparent; 
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.menu {
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: white;
+}
+
+.menu-item:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.menu-bar > .container > .menu-button > .label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.menu-bar > .container > .menu-button:hover,
+.menu-bar > .container > .menu-button:focused,
+.menu-bar > .container > .menu-button:showing {
+    -fx-background-color: rgba(255,255,255,0.12);
+}
+/* --- END NAVBAR & USER INFO STYLES --- */
+
+/* --- ADDED THEME TOGGLE STYLE --- */
+.theme-toggle {
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: #BEB9B9;
+    -fx-border-color: #515050;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 4px 8px;
+    -fx-font-weight: 700;
+}
+.theme-toggle:selected {
+    -fx-background-color: #377BE1;
+    -fx-text-fill: white;
+    -fx-border-color: #377BE1;
+}
+
+/* --- DIALOGS & MENUS (UNIVERSAL LIGHT THEME) --- */
+
+/* 1. Context Menu (The dropdown menu when clicking Category/Savings, etc.) */
+.context-menu {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-background-radius: 8px;
+    -fx-padding: 6 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);
+}
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #111; /* Dark text */
+}
+.menu-item:hover {
+    -fx-background-color: #e5e5e5;
+}
+.menu-item > .label {
+    -fx-text-fill: #111;
+    -fx-font-size: 14px;
+}
+.menu-item:focused {
+    -fx-background-color: #f0f0f0;
+}
+.menu-item:focused > .label {
+    -fx-text-fill: #111;
 }
 
 
+/* 2. Dialog Pane (Alerts, Goals, Category Windows) */
+.dialog-pane {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+.dialog-pane .label, .dialog-pane .header-panel .label {
+    -fx-text-fill: #111; /* Dark text */
+}
+.dialog-pane .header-panel {
+    -fx-background-color: #f0f0f0;
+}
+.dialog-pane .content {
+    -fx-background-color: #ffffff; 
+}
 
 
+/* Input fields inside universal light dialogs */
+.dialog-pane .text-field,
+.dialog-pane .combo-box .list-cell,
+.dialog-pane .date-picker .text-field {
+    -fx-background-color: #ffffff; /* White background for input boxes */
+    -fx-text-fill: #111; /* Black input text */
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+}
+.dialog-pane .date-picker-popup .calendar-day-cell .label {
+    -fx-text-fill: black;
+}
+.dialog-pane .date-picker-popup .calendar-day-cell:selected .label {
+    -fx-text-fill: white;
+}
 
 
+/* --- LIGHT MODE OVERRIDES (Applied when main-background-light is active) --- */
 
+/* 1. Main Background */
+.main-background-light { 
+    -fx-background-color: #f7f7f7; /* White Background for main page */
+}
 
+/* 2. Overriding ALL components to light colors and dark text */
 
+/* --- STAT CARDS --- */
+.main-background-light .stat-card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e5e5e5;
+}
+.main-background-light .stat-card:hover {
+    -fx-background-color: #e5e5e5;
+}
 
+/* --- TEXT VISIBILITY FIXES (Dashboard Labels) --- */
+.main-background-light .text-light-gray, 
+.main-background-light .user-email-label,
+.main-background-light .stat-label {
+    -fx-text-fill: #383838; 
+}
+.main-background-light .text-white,
+.main-background-light .user-name-label,
+.main-background-light .stat-amount {
+    -fx-text-fill: #111; 
+}
+
+/* --- NAVBAR/TOP BAR --- */
+.main-background-light .top-bar-background {
+    -fx-background-color: #ffffff; 
+}
+.main-background-light .menu-bar > .container > .menu-button > .label {
+    -fx-text-fill: #111;
+}
+
+/* --- TABLE OVERRIDES --- */
+.main-background-light .table-view {
+    -fx-background-color: #ffffff;
+}
+.main-background-light .table-view .column-header,
+.main-background-light .table-view .filler,
+.main-background-light .table-view .column-header-background {
+    -fx-background-color: #e5e5e5;
+}
+.main-background-light .table-view .column-header .label {
+    -fx-text-fill: #383838;
+}
+
+/* Table Data (Month, Income, Expense numbers) - VISIBILITY FIX */
+.main-background-light .table-view .table-cell {
+    -fx-text-fill: #FFFFFF; 
+}
+.main-background-light .table-row-cell:even {
+    -fx-background-color: #393939; 
+}
+.main-background-light .table-row-cell:odd {
+    -fx-background-color: #2e2e2e; 
+}
+
+/* --- FIELD CONTAINERS (Recent Transactions Box) --- */
+.main-background-light .field-background,
+.main-background-light .recent-transactions-box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+}
+.main-background-light .recent-transactions-box .text-size-lg {
+    -fx-text-fill: #111;
+}
+
+/* Transaction Rows (Maintaining Dark Look inside the Light container) */
+.main-background-light .recent-transactions-box VBox {
+    -fx-background-color: #2c2c2c; 
+}
+.main-background-light .recent-transactions-box .vbox .label {
+    -fx-text-fill: #E5E5E5; 
+}
+.main-background-light .recent-transactions-box .text-light-green {
+    -fx-text-fill: #33ba2f; 
+}
+.main-background-light .recent-transactions-box .text-light-red {
+    -fx-text-fill: #ba2f2f; 
+}

@@ -1,30 +1,35 @@
 package org.example.dialogs;
 
 import com.google.gson.JsonObject;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import org.example.models.User;
 import org.example.utils.SqlUtil;
+import org.example.utils.ThemeManager;
 import org.example.utils.Utilitie;
 
-public class CreateNewCategoryDialog extends CustomDialog{
+public class CreateNewCategoryDialog extends CustomDialog {
+
     private TextField newCategoryTextField;
     private ColorPicker colorPicker;
     private Button createCategoryBtn;
 
-    public CreateNewCategoryDialog(User user){
+    public CreateNewCategoryDialog(User user) {
         super(user);
 
         setTitle("Create New Category");
-        getDialogPane().setContent(createDialogContentBox());
+
+        VBox dialogContentBox = createDialogContentBox();
+        getDialogPane().setContent(dialogContentBox);
+
+        // ✅ Apply theme AFTER the dialog is fully loaded
+        // Platform.runLater(() -> ThemeManager.apply(getDialogPane().getScene()));
     }
 
-    private VBox createDialogContentBox(){
+    private VBox createDialogContentBox() {
         VBox dialogContentBox = new VBox(20);
 
         newCategoryTextField = new TextField();
@@ -38,13 +43,12 @@ public class CreateNewCategoryDialog extends CustomDialog{
         createCategoryBtn = new Button("Create");
         createCategoryBtn.getStyleClass().addAll("bg-light-blue", "text-size-md", "text-white");
         createCategoryBtn.setMaxWidth(Double.MAX_VALUE);
+
         createCategoryBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                // extract the data
                 String categoryName = newCategoryTextField.getText();
                 String color = Utilitie.getHexColorValue(colorPicker);
-                System.out.println(color);
 
                 JsonObject userData = new JsonObject();
                 userData.addProperty("id", user.getId());
@@ -54,11 +58,11 @@ public class CreateNewCategoryDialog extends CustomDialog{
                 transactionCategoryData.addProperty("categoryName", categoryName);
                 transactionCategoryData.addProperty("categoryColor", color);
 
-                boolean postTransactionCategoryStatus = SqlUtil.postTransactionCategory(transactionCategoryData);
-                if(postTransactionCategoryStatus){
+                boolean created = SqlUtil.postTransactionCategory(transactionCategoryData);
+                if (created) {
                     Utilitie.showAlertDialog(Alert.AlertType.INFORMATION,
-                            "Success: Create a Transaction Category");
-                }else{
+                            "Success: Created a Transaction Category");
+                } else {
                     Utilitie.showAlertDialog(Alert.AlertType.ERROR,
                             "Error: Failed to create Transaction Category");
                 }
@@ -69,17 +73,3 @@ public class CreateNewCategoryDialog extends CustomDialog{
         return dialogContentBox;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

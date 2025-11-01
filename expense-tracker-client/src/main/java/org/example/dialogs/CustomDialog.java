@@ -5,15 +5,16 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import org.example.models.User;
 
-public class CustomDialog extends Dialog {
+// FIX: Removed the restrictive "extends ButtonType" clause
+public class CustomDialog<T> extends Dialog<T> { 
     protected User user;
 
     public CustomDialog(User user){
         this.user = user;
 
-        // add the stylesheet
         getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-        getDialogPane().getStyleClass().addAll("main-background");
+       // Remove specific styling; let ThemeManager apply based on current mode
+// (nothing needed here except dynamic apply in each dialog)
 
         getDialogPane().getButtonTypes().addAll(ButtonType.OK);
         Button okButton = (Button) getDialogPane().lookupButton(ButtonType.OK);
